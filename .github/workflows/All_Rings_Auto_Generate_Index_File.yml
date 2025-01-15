@@ -1,0 +1,53 @@
+name: Generate Index Pages for Rings
+
+on:
+  push:
+    paths:
+      - Ring_0/mods/**
+      - Ring_1/mods/**
+      - Ring_2/mods/**
+      - Ring_3/mods/**
+
+jobs:
+  generate-index:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+
+      - name: Generate Index Files
+        run: |
+          python <<EOF
+          import os
+
+          # Define the directories to monitor
+          directories = ["Ring_0/mods", "Ring_1/mods", "Ring_2/mods", "Ring_3/mods"]
+
+          for directory in directories:
+              # Ensure the directory exists
+              if os.path.exists(directory):
+                  # Get all files in the directory, excluding "index.html"
+                  files = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f)) and f != "index.html"]
+                  # Generate HTML content
+                  html_content = "<!DOCTYPE html>\\n<html>\\n<body>\\n<ul>\\n"
+                  for file in files:
+                      html_content += f'<li><a href="{file}">{file}</a></li>\\n'
+                  html_content += "</ul>\\n</body>\\n</html>"
+                  # Write the index.html file
+                  with open(os.path.join(directory, "index.html"), "w") as f:
+                      f.write(html_content)
+          EOF
+
+      - name: Commit Changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add Ring_*/mods/index.html
+          git commit -m "Update index.html files in mods folders"
+          git push
