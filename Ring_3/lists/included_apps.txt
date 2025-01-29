@@ -1,5 +1,4 @@
 VideoLAN.VLC
-Zoom.Zoom
 Notepad++.Notepad++
 TheDocumentFoundation.LibreOffice
 Mozilla.Firefox
