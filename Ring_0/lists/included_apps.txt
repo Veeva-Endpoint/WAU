@@ -1,5 +1,6 @@
 VideoLAN.VLC
-Zoom.Zoom
 Notepad++.Notepad++
 TheDocumentFoundation.LibreOffice
 Mozilla.Firefox
+Atlassian.Sourcetree
+WiresharkFoundation.Wireshark
