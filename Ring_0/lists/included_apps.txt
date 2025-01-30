@@ -4,3 +4,8 @@ TheDocumentFoundation.LibreOffice
 Mozilla.Firefox
 Atlassian.Sourcetree
 WiresharkFoundation.Wireshark
+Adobe.Acrobat.Reader.64-bit
+XPDP273C0XHQH2
+Google.Chrome
+Microsoft.Edge
+Foxit.FoxitReader
