@@ -9,3 +9,4 @@ XPDP273C0XHQH2
 Google.Chrome
 Microsoft.Edge
 Foxit.FoxitReader
+Zoom.Zoom
