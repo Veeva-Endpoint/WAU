@@ -10,3 +10,4 @@ Google.Chrome
 Microsoft.Edge
 Foxit.FoxitReader
 Zoom.Zoom
+Romanitho.Winget-AutoUpdate
